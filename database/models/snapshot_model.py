@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, DateTime, ForeignKey
+from sqlalchemy.orm import relationship
 
 from database.session import Base
 
@@ -17,3 +18,5 @@ class Snapshot(Base):
     delta_reports_count = Column(Integer)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
+
+    video = relationship("Video", back_populates="snapshots")

@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy.orm import relationship
 
 from database.session import Base
 
@@ -13,3 +14,5 @@ class Video(Base):
     reports_count = Column(Integer)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
+
+    snapshots = relationship("Snapshot", back_populates="videos")
