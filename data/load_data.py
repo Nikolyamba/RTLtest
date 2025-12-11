@@ -11,7 +11,8 @@ DATA_PATH = os.path.join(BASE_DIR, "videos.json")
 with open(DATA_PATH, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-def load(json_data = data, db = SessionLocal()) -> None:
+def load(json_data):
+    db = SessionLocal()
     try:
         for video in json_data['videos']:
             new_video = Video(
@@ -47,5 +48,5 @@ def load(json_data = data, db = SessionLocal()) -> None:
     finally:
         db.close()
 
-if __name__ == '__main__':
-    load()
+if __name__ == "__main__":
+    load(data)

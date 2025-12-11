@@ -15,4 +15,4 @@ class Video(Base):
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
 
-    snapshots = relationship("Snapshot", back_populates="videos")
+    snapshots = relationship("Snapshot", back_populates="video")
